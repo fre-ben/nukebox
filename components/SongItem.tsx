@@ -1,4 +1,4 @@
-import styles from "../styles/song.module.css";
+import styles from "../styles/songItem.module.css";
 
 type Props = {
   artist: string;
@@ -8,7 +8,7 @@ type Props = {
 
 export default function SongItem({ imgSrc, title, artist }: Props) {
   return (
-    <li>
+    <li className={styles.list}>
       <article className={styles.container}>
         <img src={imgSrc} className={styles.image} alt=""></img>
         <p className={styles.title}>{title}</p>

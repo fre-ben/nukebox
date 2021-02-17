@@ -10,7 +10,7 @@ export default function Home() {
         <title>Nukebox</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ul>
+      <ul className={styles.list}>
         <Greeting name="Freddy" />
         <SongItem
           artist="Thy Art Is Murder"
