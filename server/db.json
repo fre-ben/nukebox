@@ -1,16 +1,22 @@
 {
   "tracks": [
     {
-      "id": "scooter_paul-is-dead",
-      "imgSrc": "https://images.unsplash.com/photo-1613473060226-dd81153a63db?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      "title": "Paul is Dead",
-      "artist": "Scooter"
+      "id": "thy-art-is-murder_human-target",
+      "imgSrc": "https://images.unsplash.com/photo-1599689019338-50deb475f380?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      "title": "Human Target",
+      "artist": "Thy Art Is Murder"
     },
     {
       "id": "metallica_the-unforgiven",
-      "imgSrc": "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      "title": "The Unforgiven",
-      "artist": "Metallica"
+      "imgSrc": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=527&q=80",
+      "title": "Bloodline",
+      "artist": "Northlane"
+    },
+    {
+      "id": "fit-for-an-autopsy_the-sea-of-tragic-beasts",
+      "imgSrc": "https://images.unsplash.com/photo-1551506247-d223ad69c414?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      "title": "The Sea Of Tragic Beasts",
+      "artist": "Fit For An Autopsy"
     }
   ]
 }
