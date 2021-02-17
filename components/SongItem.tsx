@@ -6,12 +6,14 @@ type Props = {
   imgSrc: string;
 };
 
-export default function SongItem(props: Props) {
+export default function SongItem({ imgSrc, title, artist }: Props) {
   return (
-    <article className={styles.container}>
-      <img src={props.imgSrc} className={styles.image} alt=""></img>
-      <p className={styles.title}>{props.title}</p>
-      <p className={styles.artist}>{props.artist}</p>
-    </article>
+    <li>
+      <article className={styles.container}>
+        <img src={imgSrc} className={styles.image} alt=""></img>
+        <p className={styles.title}>{title}</p>
+        <p className={styles.artist}>{artist}</p>
+      </article>
+    </li>
   );
 }
