@@ -1,0 +1,37 @@
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 1em;
+  row-gap: 0.2em;
+  grid-template-areas:
+    "img title"
+    "img artist";
+}
+
+.list {
+  list-style: none;
+}
+
+.container p {
+  margin: 0;
+}
+
+.title {
+  font-size: 1em;
+  align-self: end;
+  grid-area: title;
+}
+
+.artist {
+  font-size: 0.9em;
+  color: var(--text-color-secondary);
+  align-self: start;
+  grid-area: artist;
+}
+
+.image {
+  border-radius: 1em;
+  width: 4.5em;
+  grid-area: img;
+}
