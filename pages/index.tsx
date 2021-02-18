@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Greeting from "../components/Greeting";
 import SongItem from "../components/SongItem";
 import styles from "../styles/Home.module.css";
-import { getSongs } from "../utils/api";
+import { APISong, getSongs } from "../utils/api";
 
 export default function Home() {
   const [songs, setSongs] = useState<APISong[]>([]);

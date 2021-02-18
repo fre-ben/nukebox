@@ -8,7 +8,7 @@ export type APISong = {
 export async function getSongs() {
   const response = await fetch("/api/songs");
   // const tracks: Array<APISong> = await response.json();
-  const songs: APIsong[] = await response.json();
+  const songs: APISong[] = await response.json();
   return songs;
 }
 
