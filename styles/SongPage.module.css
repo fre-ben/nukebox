@@ -1,0 +1,24 @@
+.container {
+  display: grid;
+  margin-left: 1em;
+  justify-content: center;
+}
+
+.container p {
+  margin: 0;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1em auto;
+  margin-bottom: 2.5em;
+}
+
+.header span {
+  justify-self: center;
+}
+
+.image {
+  width: 22em;
+  border-radius: 1.5em;
+}
