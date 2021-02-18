@@ -1,9 +1,9 @@
 import { useRouter } from "next/dist/client/router";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { APISong, getSong } from "../../utils/api";
 import styles from "../../styles/SongPage.module.css";
 import SongPageHeader from "../../components/SongPageHeader";
+import SongPlaying from "../../components/SongPlaying";
 
 export default function Song() {
   const router = useRouter();
@@ -28,12 +28,11 @@ export default function Song() {
   return (
     <div className={styles.container}>
       <SongPageHeader />
-
-      <div>
-        <img src={song.imgSrc} className={styles.image}></img>
-        <p>Title: {song.title}</p>
-        <p>Artist: {song.artist}</p>
-      </div>
+      <SongPlaying
+        imgSrc={song.imgSrc}
+        artist={song.artist}
+        title={song.title}
+      />
     </div>
   );
 }
