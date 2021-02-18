@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { APISong, getSong } from "../../utils/api";
 import styles from "../../styles/SongPage.module.css";
+import SongPageHeader from "../../components/SongPageHeader";
 
 export default function Song() {
   const router = useRouter();
@@ -26,14 +27,7 @@ export default function Song() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <Link href="/">
-          <a>
-            <div> &lt;</div>
-          </a>
-        </Link>
-        <span>Now Playing</span>
-      </div>
+      <SongPageHeader />
 
       <div>
         <img src={song.imgSrc} className={styles.image}></img>
