@@ -1,7 +1,6 @@
 .controls {
   display: grid;
   justify-content: center;
-  margin-top: 2em;
 }
 
 .controls audio::-webkit-media-controls-panel {
