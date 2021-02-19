@@ -6,8 +6,10 @@ type Props = {
 
 export default function SongControls(props: Props) {
   return (
-    <audio controls src={props.audioSrc}>
-      Test
-    </audio>
+    <div className={styles.controls}>
+      <audio controls src={props.audioSrc}>
+        Test
+      </audio>
+    </div>
   );
 }
