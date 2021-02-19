@@ -6,7 +6,7 @@ export default function SongPageHeader() {
     <div className={styles.header}>
       <Link href="/">
         <a>
-          <div> &lt;</div>
+          <img src="/arrow-left.svg" />
         </a>
       </Link>
       <span>Now Playing</span>

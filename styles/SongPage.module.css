@@ -11,8 +11,13 @@
 .header {
   display: grid;
   grid-template-columns: 1em auto;
+  grid-template-rows: 2em;
+  align-items: center;
 }
 
 .header span {
   justify-self: center;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9em;
 }
