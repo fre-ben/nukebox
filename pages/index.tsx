@@ -40,6 +40,10 @@ export default function Home() {
       <Head>
         <title>Nukebox</title>
         <link rel="icon" href="/favicon.ico" />
+        <script
+          src="https://kit.fontawesome.com/d1f1f68cc2.js"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
       <Greeting name="Freddy" />
       <ul className={styles.list}>{songItems}</ul>
