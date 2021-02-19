@@ -1,4 +1,20 @@
+.container {
+  display: grid;
+  justify-items: center;
+}
+
+.container p {
+  margin-bottom: 0.5em;
+}
+
 .image {
   width: 22em;
   border-radius: 1.5em;
+  margin-bottom: 2em;
+  margin-top: 2.5em;
+}
+
+.artist {
+  color: var(--text-color-secondary);
+  font-size: 0.75em;
 }

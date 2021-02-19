@@ -3,10 +3,10 @@ import styles from "../styles/songPlaying.module.css";
 
 export default function SongPlaying(props: Props) {
   return (
-    <div>
+    <div className={styles.container}>
       <img src={props.imgSrc} className={styles.image}></img>
-      <p>Title: {props.title}</p>
-      <p>Artist: {props.artist}</p>
+      <p>{props.title}</p>
+      <p className={styles.artist}>{props.artist}</p>
     </div>
   );
 }
