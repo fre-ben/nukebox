@@ -6,6 +6,7 @@ import SongPageHeader from "../../components/SongPageHeader";
 import SongPlaying from "../../components/SongPlaying";
 import SongControls from "../../components/SongControls";
 import Head from "next/head";
+import Toolbar from "../../components/Toolbar";
 
 export default function Song() {
   const router = useRouter();
@@ -34,10 +35,6 @@ export default function Song() {
           {song.artist} - {song.title}
         </title>
         <link rel="icon" href="/favicon.ico" />
-        <script
-          src="https://kit.fontawesome.com/d1f1f68cc2.js"
-          crossOrigin="anonymous"
-        ></script>
       </Head>
       <SongPageHeader />
       <SongPlaying
@@ -45,7 +42,7 @@ export default function Song() {
         artist={song.artist}
         title={song.title}
       />
-      <i className="fas fa-plus"></i>
+      <Toolbar />
       <SongControls audioSrc={song.audioSrc} />
     </div>
   );
