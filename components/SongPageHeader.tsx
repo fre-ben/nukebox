@@ -8,7 +8,6 @@ export default function SongPageHeader() {
   return (
     <div className={styles.header}>
       <img src="/arrow-left.svg" onClick={goBack} />
-
       <span>Now Playing</span>
     </div>
   );
