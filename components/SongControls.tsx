@@ -1,5 +1,13 @@
 import styles from "../styles/SongControls.module.css";
 
-export default function SongControls() {
-  return;
+type Props = {
+  audioSrc: string;
+};
+
+export default function SongControls(props: Props) {
+  return (
+    <audio controls src={props.audioSrc}>
+      Test
+    </audio>
+  );
 }
