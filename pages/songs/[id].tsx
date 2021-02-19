@@ -4,6 +4,7 @@ import { APISong, getSong } from "../../utils/api";
 import styles from "../../styles/SongPage.module.css";
 import SongPageHeader from "../../components/SongPageHeader";
 import SongPlaying from "../../components/SongPlaying";
+import SongControls from "../../components/SongControls";
 
 export default function Song() {
   const router = useRouter();
@@ -33,6 +34,7 @@ export default function Song() {
         artist={song.artist}
         title={song.title}
       />
+      <SongControls audioSrc={song.audioSrc} />
     </div>
   );
 }
