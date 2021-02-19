@@ -10,12 +10,13 @@ export default function Toolbar() {
 
   return (
     <div className={styles.container}>
-      <img src="/plus.svg" />
+      <img className={styles.plus} src="/plus.svg" />
       <img
         onClick={handleLikeButtonClick}
         className={styles.heart}
         src={heart ? "/heartOn.svg" : "/heartOff.svg"}
       />
+      <img className={styles.share} src="/share.svg" />
     </div>
   );
 }
