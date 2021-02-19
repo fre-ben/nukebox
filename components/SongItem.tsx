@@ -1,6 +1,6 @@
 import styles from "../styles/songItem.module.css";
 
-type Props = {
+export type Props = {
   artist: string;
   title: string;
   imgSrc: string;

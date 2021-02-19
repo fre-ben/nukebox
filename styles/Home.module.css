@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  margin-left: 1em;
+  justify-content: center;
 }
 
 .list {

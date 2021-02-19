@@ -18,3 +18,9 @@ export async function getSongs() {
 //     .then((response) => response.json())
 //     .then((songs: APISong[]) => tracks);
 // }
+
+export async function getSong(id: string) {
+  const response = await fetch(`/api/songs/${id}`);
+  const song: APISong = await response.json();
+  return song;
+}
