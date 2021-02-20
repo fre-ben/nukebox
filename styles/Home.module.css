@@ -3,6 +3,18 @@
   justify-content: center;
 }
 
+.songItemContainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+}
+
+.likeButton {
+  justify-self: end;
+  padding-left: 1em;
+  font-size: 0.7em;
+}
+
 .list {
   margin: 0;
   padding: 0;
