@@ -5,6 +5,7 @@ import SongItem from "../components/SongItem";
 import styles from "../styles/Home.module.css";
 import { APISong, getSongs } from "../utils/api";
 import Link from "next/link";
+import LikeButton from "../components/LikeButton";
 
 export default function Home() {
   const [songs, setSongs] = useState<APISong[]>([]);
@@ -24,15 +25,20 @@ export default function Home() {
   // doFetch();
 
   const songItems = songs.map((song) => (
-    <Link href={`/songs/${song.id}`} key={song.id}>
-      <a>
-        <SongItem
-          imgSrc={song.imgSrc}
-          artist={song.artist}
-          title={song.title}
-        />
-      </a>
-    </Link>
+    <div className={styles.songItemContainer} key={song.id}>
+      <Link href={`/songs/${song.id}`}>
+        <a>
+          <SongItem
+            imgSrc={song.imgSrc}
+            artist={song.artist}
+            title={song.title}
+          />
+        </a>
+      </Link>
+      <div className={styles.likeButton}>
+        <LikeButton />
+      </div>
+    </div>
   ));
 
   return (
