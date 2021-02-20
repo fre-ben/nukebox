@@ -1,21 +1,11 @@
-import { useState } from "react";
 import styles from "../styles/Toolbar.module.css";
+import LikeButton from "./LikeButton";
 
 export default function Toolbar() {
-  const [heart, setHeart] = useState(false);
-
-  const handleLikeButtonClick = () => {
-    setHeart(!heart);
-  };
-
   return (
     <div className={styles.container}>
       <img className={styles.plus} src="/plus.svg" />
-      <img
-        onClick={handleLikeButtonClick}
-        className={styles.heart}
-        src={heart ? "/heartOn.svg" : "/heartOff.svg"}
-      />
+      <LikeButton />
       <img className={styles.share} src="/share.svg" />
     </div>
   );
