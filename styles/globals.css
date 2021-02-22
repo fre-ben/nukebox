@@ -13,6 +13,7 @@ body {
   --background-color-secondary: #282a3d;
   --text-color-primary: #ffff;
   --text-color-secondary: #b8b8b8;
+  --contrast-color: #cfbc4e;
 }
 
 a {

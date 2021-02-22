@@ -1,0 +1,15 @@
+.customPlayer {
+  background: var(--contrast-color);
+  padding: 5%;
+  border-radius: 40px;
+  display: grid;
+  justify-items: center;
+}
+
+.duration {
+  width: 100%;
+}
+
+.btn {
+  background: none;
+}
