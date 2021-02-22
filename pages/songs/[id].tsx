@@ -41,7 +41,7 @@ export default function Song() {
       <SongPlaying {...song} />
       <Toolbar />
       <SongControls audioSrc={song.audioSrc} />
-      <CustomPlayer />
+      <CustomPlayer src={song.audioSrc} />
     </div>
   );
 }
