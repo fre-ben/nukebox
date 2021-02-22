@@ -1,7 +1,11 @@
 import styles from "../styles/songItem.module.css";
 import { APISong } from "../utils/api";
 
-export default function SongItem({ imgSrc, title, artist }: APISong) {
+export default function SongItem({
+  imgSrc,
+  title,
+  artist,
+}: Omit<APISong, "id" | "audioSrc">) {
   return (
     <li className={styles.list}>
       <article className={styles.container}>
