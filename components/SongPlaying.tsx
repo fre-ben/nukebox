@@ -1,12 +1,12 @@
-import { Props } from "./SongItem";
 import styles from "../styles/songPlaying.module.css";
+import { APISong } from "../utils/api";
 
-export default function SongPlaying(props: Props) {
+export default function SongPlaying({ imgSrc, title, artist }: APISong) {
   return (
     <div className={styles.container}>
-      <img src={props.imgSrc} className={styles.image}></img>
-      <p>{props.title}</p>
-      <p className={styles.artist}>{props.artist}</p>
+      <img src={imgSrc} className={styles.image}></img>
+      <p>{title}</p>
+      <p className={styles.artist}>{artist}</p>
     </div>
   );
 }

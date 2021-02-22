@@ -37,11 +37,7 @@ export default function Song() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SongPageHeader />
-      <SongPlaying
-        imgSrc={song.imgSrc}
-        artist={song.artist}
-        title={song.title}
-      />
+      <SongPlaying {...song} />
       <Toolbar />
       <SongControls audioSrc={song.audioSrc} />
     </div>
