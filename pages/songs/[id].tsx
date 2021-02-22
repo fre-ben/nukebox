@@ -7,6 +7,7 @@ import SongPlaying from "../../components/SongPlaying";
 import SongControls from "../../components/SongControls";
 import Head from "next/head";
 import Toolbar from "../../components/Toolbar";
+import CustomPlayer from "../../components/CustomPlayer";
 
 export default function Song() {
   const router = useRouter();
@@ -40,6 +41,7 @@ export default function Song() {
       <SongPlaying {...song} />
       <Toolbar />
       <SongControls audioSrc={song.audioSrc} />
+      <CustomPlayer />
     </div>
   );
 }
