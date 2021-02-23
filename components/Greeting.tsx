@@ -6,8 +6,13 @@ type Props = {
 
 export default function Greeting(props: Props) {
   return (
-    <p>
-      Hello, <span className={styles.name}>{props.name}</span>
-    </p>
+    <>
+      <p className={styles.hello}>
+        Hello, <span className={styles.name}>{props.name}</span>
+      </p>
+      <p className={styles.counter}>
+        You've been here <span className={styles.counterNumber}>11</span> times!
+      </p>
+    </>
   );
 }

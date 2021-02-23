@@ -1,5 +1,21 @@
+.hello {
+  margin: 0;
+  margin-top: 1em;
+}
+
 .name {
   font-weight: bolder;
   font-size: 1.2em;
   display: block;
+}
+
+.counter {
+  margin: 0;
+  margin-bottom: 1em;
+  font-size: 0.8em;
+}
+
+.counterNumber {
+  color: var(--contrast-color);
+  font-weight: bold;
 }
