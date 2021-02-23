@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "../styles/greeting.module.css";
 
 type Props = {
@@ -13,22 +13,48 @@ export default function Greeting(props: Props) {
     const storageVisitsValue = localStorage.getItem("visits");
     return storageVisitsValue;
   }
-  let viewCounter = +getVisitsValue();
+
+  const [viewCounter, setViewCounter] = useState(+getVisitsValue());
 
   useEffect(() => {
-    viewCounter++;
-    localStorage.setItem("visits", viewCounter.toString());
+    const newViewCounter = viewCounter + 1;
+    setViewCounter(newViewCounter);
+    localStorage.setItem("visits", newViewCounter.toString());
   }, []);
+
+  function resetViewCounter() {
+    localStorage.removeItem("visits");
+    setViewCounter(+getVisitsValue());
+  }
+
+  const viewCounterText = () => {
+    if (typeof localStorage === "undefined") {
+      return <div>localStorage is not supported by Server-Side-Rendering</div>;
+    }
+    if (localStorage.getItem("visits") === "1") {
+      return (
+        <p className={styles.counter}>
+          You&apos;ve been here
+          <span className={styles.counterNumber}> {viewCounter}</span> time!
+        </p>
+      );
+    } else {
+      return (
+        <p className={styles.counter}>
+          You&apos;ve been here
+          <span className={styles.counterNumber}> {viewCounter}</span> times!
+        </p>
+      );
+    }
+  };
 
   return (
     <>
       <p className={styles.hello}>
         Hello, <span className={styles.name}>{props.name}</span>
       </p>
-      <p className={styles.counter}>
-        You&apos;ve been here
-        <span className={styles.counterNumber}> {viewCounter}</span> times!
-      </p>
+      {viewCounterText()}
+      <button onClick={resetViewCounter}>X</button>
     </>
   );
 }
