@@ -11,7 +11,8 @@ export default function Greeting(props: Props) {
         Hello, <span className={styles.name}>{props.name}</span>
       </p>
       <p className={styles.counter}>
-        You've been here <span className={styles.counterNumber}>11</span> times!
+        You&apos;ve been here
+        <span className={styles.counterNumber}> 11</span> times!
       </p>
     </>
   );
