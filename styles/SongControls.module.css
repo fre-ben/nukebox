@@ -4,5 +4,5 @@
 }
 
 .controls audio::-webkit-media-controls-panel {
-  background-color: #cfbc4e;
+  background-color: var(--contrast-color);
 }
