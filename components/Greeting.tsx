@@ -13,13 +13,11 @@ export default function Greeting(props: Props) {
     const viewCounter = localStorage.getItem("visits");
     return viewCounter;
   }
-  let counter = Number(VisitsCount());
+  let counter = +VisitsCount();
 
   useEffect(() => {
     counter++;
-    const counterString = counter.toString();
-    localStorage.setItem("visits", counterString);
-    console.log(counter);
+    localStorage.setItem("visits", counter.toString());
   }, []);
 
   return (
