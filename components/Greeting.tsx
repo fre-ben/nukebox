@@ -6,18 +6,18 @@ type Props = {
 };
 
 export default function Greeting(props: Props) {
-  function VisitsCount() {
+  function getVisitsValue() {
     if (typeof localStorage === "undefined") {
       return <div>localStorage is not supported by Server-Side-Rendering</div>;
     }
-    const viewCounter = localStorage.getItem("visits");
-    return viewCounter;
+    const storageVisitsValue = localStorage.getItem("visits");
+    return storageVisitsValue;
   }
-  let counter = +VisitsCount();
+  let viewCounter = +getVisitsValue();
 
   useEffect(() => {
-    counter++;
-    localStorage.setItem("visits", counter.toString());
+    viewCounter++;
+    localStorage.setItem("visits", viewCounter.toString());
   }, []);
 
   return (
@@ -27,7 +27,7 @@ export default function Greeting(props: Props) {
       </p>
       <p className={styles.counter}>
         You&apos;ve been here
-        <span className={styles.counterNumber}> {counter}</span> times!
+        <span className={styles.counterNumber}> {viewCounter}</span> times!
       </p>
     </>
   );
