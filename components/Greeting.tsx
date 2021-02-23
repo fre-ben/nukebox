@@ -15,11 +15,13 @@ export default function Greeting(props: Props) {
   }
 
   const [viewCounter, setViewCounter] = useState(+getVisitsValue());
+  const [visitsValueIsOne, setVisitsValueIsOne] = useState(false);
 
   useEffect(() => {
     const newViewCounter = viewCounter + 1;
     setViewCounter(newViewCounter);
     localStorage.setItem("visits", newViewCounter.toString());
+    checkVisitsValue();
   }, []);
 
   function resetViewCounter() {
@@ -27,33 +29,22 @@ export default function Greeting(props: Props) {
     setViewCounter(+getVisitsValue());
   }
 
-  const viewCounterText = () => {
-    if (typeof localStorage === "undefined") {
-      return <div>localStorage is not supported by Server-Side-Rendering</div>;
-    }
+  function checkVisitsValue() {
     if (localStorage.getItem("visits") === "1") {
-      return (
-        <p className={styles.counter}>
-          You&apos;ve been here
-          <span className={styles.counterNumber}> {viewCounter}</span> time!
-        </p>
-      );
-    } else {
-      return (
-        <p className={styles.counter}>
-          You&apos;ve been here
-          <span className={styles.counterNumber}> {viewCounter}</span> times!
-        </p>
-      );
+      setVisitsValueIsOne(true);
     }
-  };
+  }
 
   return (
     <>
       <p className={styles.hello}>
         Hello, <span className={styles.name}>{props.name}</span>
       </p>
-      {viewCounterText()}
+      <p className={styles.counter}>
+        You&apos;ve been here
+        <span className={styles.counterNumber}> {viewCounter}</span>{" "}
+        {visitsValueIsOne ? "time" : "times"}
+      </p>
       <button onClick={resetViewCounter}>X</button>
     </>
   );
