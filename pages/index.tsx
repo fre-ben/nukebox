@@ -6,9 +6,11 @@ import styles from "../styles/Home.module.css";
 import { APISong, getSongs } from "../utils/api";
 import Link from "next/link";
 import LikeButton from "../components/LikeButton";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 export default function Home() {
   const [songs, setSongs] = useState<APISong[]>([]);
+  const [likedSongs, setLikedSongs] = useLocalStorage("likedSongs", []);
 
   useEffect(() => {
     console.log("Homepage is mounted");
@@ -16,13 +18,6 @@ export default function Home() {
       setSongs(newSongs);
     });
   }, []);
-
-  // Alternative für useEffect():
-  // async function doFetch() {
-  //   const newSongs = await getSongs();
-  //   setSongs(newSongs);
-  // }
-  // doFetch();
 
   const songItems = songs.map((song) => (
     <div className={styles.songItemContainer} key={song.id}>
@@ -41,6 +36,14 @@ export default function Home() {
     </div>
   ));
 
+  function getImagesByLikedSongs() {
+    // const likedSongsById = songs.filter((song) => song.id === likedSongs[0]);
+    const likedSongsById = songs.filter((song) => likedSongs.includes(song.id));
+    return likedSongsById.map((song) => (
+      <img key={song.title} className={styles.likedImg} src={song.imgSrc}></img>
+    ));
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -53,6 +56,8 @@ export default function Home() {
       </Head>
       <Greeting name="Freddy" />
       <ul className={styles.list}>{songItems}</ul>
+      <p>Liked Songs:</p>
+      {getImagesByLikedSongs()}
     </div>
   );
 }
