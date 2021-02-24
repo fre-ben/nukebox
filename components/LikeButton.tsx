@@ -1,20 +1,22 @@
 import { useRouter } from "next/dist/client/router";
 import { useEffect, useState } from "react";
 import styles from "../styles/Toolbar.module.css";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 export default function LikeButton() {
   const [heart, setHeart] = useState(null);
   const router = useRouter();
   const { id } = router.query;
+  const [storedValue, setValue] = useLocalStorage("likedSong", "");
 
   useEffect(() => {
     if (typeof id !== "string" || heart === null) {
       return;
     }
     if (heart) {
-      localStorage.setItem("likedSong", id);
+      setValue(id);
     } else {
-      localStorage.removeItem("likedSong");
+      setValue("");
     }
   }, [heart, id]);
 
@@ -22,7 +24,7 @@ export default function LikeButton() {
     if (typeof id !== "string") {
       return;
     }
-    setHeart(id === localStorage.getItem("likedSong"));
+    setHeart(id === storedValue);
   }, [id]);
 
   const handleLikeButtonClick = () => {
