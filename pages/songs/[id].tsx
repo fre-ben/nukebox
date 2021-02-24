@@ -8,18 +8,16 @@ import SongControls from "../../components/SongControls";
 import Head from "next/head";
 import Toolbar from "../../components/Toolbar";
 import CustomPlayer from "../../components/CustomPlayer";
+import LikeButton from "../../components/LikeButton";
 
 export default function Song() {
   const router = useRouter();
-  const { id } = router.query;
-
+  const { id: idQuery } = router.query;
+  const id = typeof idQuery === "string" ? idQuery : idQuery[0];
   const [song, setSong] = useState<APISong>(null);
 
   useEffect(() => {
     console.log(id);
-    if (typeof id !== "string") {
-      return;
-    }
     getSong(id).then((newSong) => {
       setSong(newSong);
     });
@@ -39,7 +37,9 @@ export default function Song() {
       </Head>
       <SongPageHeader />
       <SongPlaying {...song} />
-      <Toolbar />
+      <Toolbar>
+        <LikeButton id={id} />
+      </Toolbar>
       <SongControls audioSrc={song.audioSrc} />
       <CustomPlayer src={song.audioSrc} />
     </div>
