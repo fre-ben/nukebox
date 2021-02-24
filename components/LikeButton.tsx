@@ -1,41 +1,34 @@
 import { useRouter } from "next/dist/client/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import styles from "../styles/Toolbar.module.css";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 export default function LikeButton() {
-  const [heart, setHeart] = useState(null);
   const router = useRouter();
   const { id } = router.query;
-  const [storedValue, setValue] = useLocalStorage("likedSong", "");
-
-  useEffect(() => {
-    if (typeof id !== "string" || heart === null) {
-      return;
-    }
-    if (heart) {
-      setValue(id);
-    } else {
-      setValue("");
-    }
-  }, [heart, id]);
+  const [likedSongs, setLikedSongs] = useLocalStorage("likedSongs", []);
+  const like = likedSongs.includes(id);
 
   useEffect(() => {
     if (typeof id !== "string") {
       return;
     }
-    setHeart(id === storedValue);
   }, [id]);
 
   const handleLikeButtonClick = () => {
-    setHeart(!heart);
+    if (like) {
+      const newLikedSongs = likedSongs.filter((likedSong) => likedSong !== id);
+      setLikedSongs(newLikedSongs);
+    } else {
+      setLikedSongs([...likedSongs, id]);
+    }
   };
 
   return (
     <img
       onClick={handleLikeButtonClick}
       className={styles.heart}
-      src={heart ? "/heartOn.svg" : "/heartOff.svg"}
+      src={like ? "/heartOn.svg" : "/heartOff.svg"}
     />
   );
 }
