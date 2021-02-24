@@ -36,7 +36,7 @@ export default function Home() {
         </a>
       </Link>
       <div className={styles.likeButton}>
-        <LikeButton />
+        <LikeButton id={song.id} />
       </div>
     </div>
   ));
