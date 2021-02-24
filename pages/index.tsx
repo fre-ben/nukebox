@@ -40,7 +40,7 @@ export default function Home() {
     // const likedSongsById = songs.filter((song) => song.id === likedSongs[0]);
     const likedSongsById = songs.filter((song) => likedSongs.includes(song.id));
     return likedSongsById.map((song) => (
-      <img key={song.title} className={styles.likedImg} src={song.imgSrc}></img>
+      <img className={styles.likedImg} src={song.imgSrc} key={song.title}></img>
     ));
   }
 
@@ -57,7 +57,7 @@ export default function Home() {
       <Greeting name="Freddy" />
       <ul className={styles.list}>{songItems}</ul>
       <p>Liked Songs:</p>
-      {getImagesByLikedSongs()}
+      <div className={styles.likedImgContainer}>{getImagesByLikedSongs()}</div>
     </div>
   );
 }
