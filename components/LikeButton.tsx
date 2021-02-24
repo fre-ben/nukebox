@@ -7,7 +7,7 @@ export default function LikeButton() {
   const router = useRouter();
   const { id } = router.query;
   const [likedSongs, setLikedSongs] = useLocalStorage("likedSongs", []);
-  const like = likedSongs.includes(id);
+  const liked = likedSongs.includes(id);
 
   useEffect(() => {
     if (typeof id !== "string") {
@@ -16,7 +16,7 @@ export default function LikeButton() {
   }, [id]);
 
   const handleLikeButtonClick = () => {
-    if (like) {
+    if (liked) {
       const newLikedSongs = likedSongs.filter((likedSong) => likedSong !== id);
       setLikedSongs(newLikedSongs);
     } else {
@@ -28,7 +28,7 @@ export default function LikeButton() {
     <img
       onClick={handleLikeButtonClick}
       className={styles.heart}
-      src={like ? "/heartOn.svg" : "/heartOff.svg"}
+      src={liked ? "/heartOn.svg" : "/heartOff.svg"}
     />
   );
 }
