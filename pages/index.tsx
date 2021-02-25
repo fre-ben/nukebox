@@ -10,7 +10,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 export default function Home() {
   const [songs, setSongs] = useState<APISong[]>([]);
-  const [likedSongs, setLikedSongs] = useLocalStorage("likedSongs", []);
+  const [likedSongs] = useLocalStorage("likedSongs", []);
 
   useEffect(() => {
     console.log("Homepage is mounted");

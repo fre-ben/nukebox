@@ -13,6 +13,9 @@ import LikeButton from "../../components/LikeButton";
 export default function Song() {
   const router = useRouter();
   const { id: idQuery } = router.query;
+  if (!idQuery) {
+    return null;
+  }
   const id = typeof idQuery === "string" ? idQuery : idQuery[0];
   const [song, setSong] = useState<APISong>(null);
 
