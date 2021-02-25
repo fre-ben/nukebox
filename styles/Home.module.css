@@ -21,3 +21,14 @@
   display: grid;
   row-gap: 1.2em;
 }
+
+.likedImg {
+  width: 7em;
+  border-radius: 100%;
+}
+
+.likedImgContainer {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 1em;
+}
