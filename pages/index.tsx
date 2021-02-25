@@ -19,7 +19,7 @@ export default function Home() {
     });
   }, []);
 
-  async function handleDeleteSong(id) {
+  async function handleDeleteSong(id: string) {
     await deleteSong(id);
     window.location.reload();
   }
