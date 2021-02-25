@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Greeting from "../components/Greeting";
 import SongItem from "../components/SongItem";
 import styles from "../styles/Home.module.css";
-import { APISong, getSongs } from "../utils/api";
+import { APISong, deleteSong, getSongs } from "../utils/api";
 import Link from "next/link";
 import LikeButton from "../components/LikeButton";
 import useLocalStorage from "../hooks/useLocalStorage";
@@ -19,6 +19,11 @@ export default function Home() {
     });
   }, []);
 
+  async function handleDeleteSong(id) {
+    await deleteSong(id);
+    window.location.reload();
+  }
+
   const songItems = songs.map((song) => (
     <div className={styles.songItemContainer} key={song.id}>
       <Link href={`/songs/${song.id}`}>
@@ -33,12 +38,16 @@ export default function Home() {
       <div className={styles.likeButton}>
         <LikeButton id={song.id} />
       </div>
-      <button className={styles.deleteButton}>🧻</button>
+      <button
+        onClick={() => handleDeleteSong(song.id)}
+        className={styles.deleteButton}
+      >
+        🧻
+      </button>
     </div>
   ));
 
   function getImagesByLikedSongs() {
-    // const likedSongsById = songs.filter((song) => song.id === likedSongs[0]);
     const likedSongsById = songs.filter((song) => likedSongs.includes(song.id));
     return likedSongsById.map((song) => (
       <img className={styles.likedImg} src={song.imgSrc} key={song.title}></img>
