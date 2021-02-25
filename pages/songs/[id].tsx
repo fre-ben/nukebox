@@ -1,6 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import { useEffect, useState } from "react";
-import { APISong, getSong } from "../../utils/api";
+import { APISong, deleteSong, getSong } from "../../utils/api";
 import styles from "../../styles/SongPage.module.css";
 import SongPageHeader from "../../components/SongPageHeader";
 import SongPlaying from "../../components/SongPlaying";
@@ -39,6 +39,7 @@ export default function Song() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SongPageHeader />
+      <button onClick={() => deleteSong(id)}>DELETE</button>
       <SongPlaying {...song} />
       <Toolbar>
         <LikeButton id={id} />
