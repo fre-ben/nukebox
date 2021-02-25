@@ -22,7 +22,7 @@ export default function Home() {
   const songItems = songs.map((song) => (
     <div className={styles.songItemContainer} key={song.id}>
       <Link href={`/songs/${song.id}`}>
-        <a>
+        <a className={styles.aContainer}>
           <SongItem
             imgSrc={song.imgSrc}
             artist={song.artist}
@@ -33,6 +33,7 @@ export default function Home() {
       <div className={styles.likeButton}>
         <LikeButton id={song.id} />
       </div>
+      <button>DELETE</button>
     </div>
   ));
 

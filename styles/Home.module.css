@@ -6,7 +6,15 @@
 .songItemContainer {
   display: grid;
   grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "song"
+    "song";
   align-items: center;
+}
+
+.aContainer {
+  grid-area: song;
 }
 
 .likeButton {
