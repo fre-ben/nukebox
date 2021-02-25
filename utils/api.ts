@@ -20,13 +20,9 @@ export async function getSong(id: string): Promise<APISong> {
 }
 
 export async function deleteSong(id: string) {
-  const confirmation = confirm("Are you sure to delete the song?");
-  if (confirmation === true) {
-    const response = await fetch(`/api/songs/${id}`, { method: "delete" });
-    history.back();
-    getSongs();
-    return response;
-  } else {
-    getSong(id);
-  }
+  const response = await fetch(`/api/songs/${id}`, {
+    method: "delete",
+    redirect: "manual",
+  });
+  return response;
 }

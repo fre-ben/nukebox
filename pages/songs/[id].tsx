@@ -30,6 +30,11 @@ export default function Song() {
     return <div>Loading...</div>;
   }
 
+  const handleDeleteSong = async () => {
+    await deleteSong(id);
+    router.back();
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -39,7 +44,7 @@ export default function Song() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SongPageHeader />
-      <button onClick={() => deleteSong(id)}>DELETE</button>
+      <button onClick={handleDeleteSong}>DELETE</button>
       <SongPlaying {...song} />
       <Toolbar>
         <LikeButton id={id} />
