@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import { APISong } from "../utils/api";
 
 type DB = {
-  tracks: APISong[];
+  songs: APISong[];
 };
 
 const DB_PATH = "./server/db.json";
