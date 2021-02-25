@@ -1,0 +1,38 @@
+### GET HTML of index page
+GET http://localhost:3000/
+
+### GET HTML of track page
+GET http://localhost:3000/songs/thy-art-is-murder_human-target
+
+### GET all tracks
+GET http://localhost:3000/api/songs
+
+### GET a single track
+GET http://localhost:3000/api/songs/thy-art-is-murder_human-target
+
+### DELETE a single track
+DELETE http://localhost:3000/api/songs/thy-art-is-murder_human-target
+
+### POST a already existing track
+POST http://localhost:3000/api/songs
+Content-Type: application/json
+
+{
+    "id": "thy-art-is-murder_human-target",
+    "imgSrc": "https://images.unsplash.com/photo-1599689019338-50deb475f380?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    "title": "Human Target",
+    "artist": "Thy Art Is Murder",
+    "audioSrc": "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/KBOO/The_Underscore_Orkestra/No_Money_No_Honey_All_We_Got_Is_Us/The_Underscore_Orkestra_-_02_-_Blue_Draggish.mp3"
+}
+
+### POST a new track
+POST http://localhost:3000/api/songs
+Content-Type: application/json
+
+{
+    "id": "parkway-drive_carrion",
+    "imgSrc": "https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    "title": "Carrion",
+    "artist": "Parkway Drive",
+    "audioSrc": "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/KBOO/The_Underscore_Orkestra/No_Money_No_Honey_All_We_Got_Is_Us/The_Underscore_Orkestra_-_02_-_Blue_Draggish.mp3"
+}

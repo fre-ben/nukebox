@@ -1,6 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import { useEffect, useState } from "react";
-import { APISong, getSong } from "../../utils/api";
+import { APISong, deleteSong, getSong } from "../../utils/api";
 import styles from "../../styles/SongPage.module.css";
 import SongPageHeader from "../../components/SongPageHeader";
 import SongPlaying from "../../components/SongPlaying";
@@ -13,6 +13,9 @@ import LikeButton from "../../components/LikeButton";
 export default function Song() {
   const router = useRouter();
   const { id: idQuery } = router.query;
+  if (!idQuery) {
+    return null;
+  }
   const id = typeof idQuery === "string" ? idQuery : idQuery[0];
   const [song, setSong] = useState<APISong>(null);
 
@@ -27,6 +30,11 @@ export default function Song() {
     return <div>Loading...</div>;
   }
 
+  const handleDeleteSong = async () => {
+    await deleteSong(id);
+    router.back();
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -36,6 +44,7 @@ export default function Song() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SongPageHeader />
+      <button onClick={handleDeleteSong}>DELETE</button>
       <SongPlaying {...song} />
       <Toolbar>
         <LikeButton id={id} />
