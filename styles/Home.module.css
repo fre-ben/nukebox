@@ -23,6 +23,16 @@
   font-size: 0.7em;
 }
 
+.deleteButton {
+  width: 1em;
+  padding: 0;
+  border: none;
+  background: none;
+  justify-self: end;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
 .list {
   margin: 0;
   padding: 0;

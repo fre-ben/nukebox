@@ -33,7 +33,7 @@ export default function Home() {
       <div className={styles.likeButton}>
         <LikeButton id={song.id} />
       </div>
-      <button>DELETE</button>
+      <button className={styles.deleteButton}>🧻</button>
     </div>
   ));
 
