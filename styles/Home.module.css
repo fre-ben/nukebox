@@ -50,3 +50,13 @@
   grid-auto-flow: column;
   column-gap: 1em;
 }
+
+.addSong {
+  background-color: var(--background-color-secondary);
+  border: 1px solid var(--contrast-color);
+  font-size: 0.8em;
+  margin: 1em 0;
+  white-space: nowrap;
+  display: grid;
+  justify-content: center;
+}
