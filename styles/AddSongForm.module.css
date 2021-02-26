@@ -1,7 +1,6 @@
 .formContainer {
   display: grid;
   row-gap: 1em;
-  justify-content: center;
 }
 
 .submitButton {
@@ -20,4 +19,5 @@
   color: var(--text-color-primary);
   border: none;
   height: 2em;
+  margin-left: 1em;
 }
