@@ -8,6 +8,7 @@ export default function AddSongForm() {
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [audioSrc, setAudioSrc] = useState("");
+  const [addStatus, setAddStatus] = useState("");
 
   useEffect(() => {
     setId(
@@ -17,12 +18,16 @@ export default function AddSongForm() {
     );
   }, [artist, title]);
 
-  function clearInputs() {
+  function clearInputsStatusOk() {
     setId("");
     setImgSrc("");
     setTitle("");
     setArtist("");
     setAudioSrc("");
+    setAddStatus("Song added!");
+    setTimeout(() => {
+      setAddStatus("");
+    }, 5000);
   }
 
   function handleSubmit(event) {
@@ -30,7 +35,7 @@ export default function AddSongForm() {
 
     const data: APISong = { id, imgSrc, title, artist, audioSrc };
     addSong(data);
-    clearInputs();
+    clearInputsStatusOk();
   }
 
   return (
@@ -80,6 +85,7 @@ export default function AddSongForm() {
         <button type="submit" className={styles.submitButton}>
           Add Song
         </button>
+        <span className={styles.addStatus}>{addStatus}</span>
       </form>
     </>
   );
