@@ -17,11 +17,20 @@ export default function AddSongForm() {
     );
   }, [artist, title]);
 
+  function clearInputs() {
+    setId("");
+    setImgSrc("");
+    setTitle("");
+    setArtist("");
+    setAudioSrc("");
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
 
     const data: APISong = { id, imgSrc, title, artist, audioSrc };
     addSong(data);
+    clearInputs();
   }
 
   return (
