@@ -77,7 +77,9 @@ export default function AddSongForm() {
             onChange={(event) => setAudioSrc(event.target.value)}
           />
         </label>
-        <button type="submit">Add Song</button>
+        <button type="submit" className={styles.submitButton}>
+          Add Song
+        </button>
       </form>
     </>
   );
