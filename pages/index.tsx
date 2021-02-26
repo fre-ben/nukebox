@@ -12,16 +12,20 @@ export default function Home() {
   const [songs, setSongs] = useState<APISong[]>([]);
   const [likedSongs] = useLocalStorage("likedSongs", []);
 
-  useEffect(() => {
-    console.log("Homepage is mounted");
+  function refreshSongs() {
     getSongs().then((newSongs) => {
       setSongs(newSongs);
     });
+  }
+
+  useEffect(() => {
+    console.log("Homepage is mounted");
+    refreshSongs();
   }, []);
 
   async function handleDeleteSong(id: string) {
     await deleteSong(id);
-    window.location.reload();
+    refreshSongs();
   }
 
   const songItems = songs.map((song) => (
