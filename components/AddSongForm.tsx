@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/AddSongForm.module.css";
+import { addSong, APISong } from "../utils/api";
 
 export default function AddSongForm() {
   const [id, setId] = useState("");
@@ -16,13 +17,16 @@ export default function AddSongForm() {
     );
   }, [artist, title]);
 
-  function handleSubmitButton() {
-    alert("Button clicked");
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const data: APISong = { id, imgSrc, title, artist, audioSrc };
+    addSong(data);
   }
 
   return (
     <>
-      <form className={styles.formContainer}>
+      <form onSubmit={handleSubmit} className={styles.formContainer}>
         <label>
           ID:
           <input
@@ -64,9 +68,7 @@ export default function AddSongForm() {
             onChange={(event) => setAudioSrc(event.target.value)}
           />
         </label>
-        <button type="submit" onClick={handleSubmitButton}>
-          Add Song
-        </button>
+        <button type="submit">Add Song</button>
       </form>
     </>
   );

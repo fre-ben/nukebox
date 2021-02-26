@@ -21,8 +21,17 @@ export async function getSong(id: string): Promise<APISong> {
 
 export async function deleteSong(id: string) {
   const response = await fetch(`/api/songs/${id}`, {
-    method: "delete",
+    method: "DELETE",
     redirect: "manual",
+  });
+  return response;
+}
+
+export async function addSong(data: APISong) {
+  const response = await fetch("/api/songs", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
   });
   return response;
 }
