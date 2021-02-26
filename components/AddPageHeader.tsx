@@ -8,7 +8,6 @@ export default function AddPageHeader() {
   return (
     <div className={styles.header}>
       <img src="/arrow-left.svg" onClick={goBack} />
-      <span></span>
     </div>
   );
 }
