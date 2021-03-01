@@ -27,11 +27,11 @@ export async function deleteSong(id: string) {
   return response;
 }
 
-export async function addSong(data: APISong) {
+export async function addSong(newTrack: APISong) {
   const response = await fetch("/api/songs", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
+    body: JSON.stringify(newTrack),
   });
   return response;
 }

@@ -30,8 +30,8 @@ export default function AddSongForm() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    const data: APISong = { id, imgSrc, title, artist, audioSrc };
-    addSong(data);
+    const newTrack: APISong = { id, imgSrc, title, artist, audioSrc };
+    addSong(newTrack);
     clearInputsStatusOk();
   }
 
