@@ -45,7 +45,9 @@ export default function Greeting(props: Props) {
         <span className={styles.counterNumber}> {viewCounter}</span>{" "}
         {visitsValueIsOne ? "time" : "times"}
       </p>
-      <button onClick={resetViewCounter}>X</button>
+      <button className={styles.viewResetButton} onClick={resetViewCounter}>
+        Reset View Count
+      </button>
     </>
   );
 }

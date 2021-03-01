@@ -69,6 +69,11 @@ export default function Home() {
         ></script>
       </Head>
       <Greeting name="Freddy" />
+      <Link href={"/add"}>
+        <a>
+          <p className={styles.addSong}>Add Song</p>
+        </a>
+      </Link>
       <ul className={styles.list}>{songItems}</ul>
       <p>Liked Songs:</p>
       <div className={styles.likedImgContainer}>{getImagesByLikedSongs()}</div>

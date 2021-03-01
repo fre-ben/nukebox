@@ -19,3 +19,14 @@
   color: var(--contrast-color);
   font-weight: bold;
 }
+
+.viewResetButton {
+  background-color: var(--background-color-secondary);
+  border: 1px solid var(--contrast-color);
+  font-size: 0.8em;
+  white-space: nowrap;
+  display: grid;
+  justify-content: center;
+  color: var(--text-color-primary);
+  cursor: pointer;
+}
