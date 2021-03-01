@@ -29,7 +29,7 @@ export default function AddSongForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-
+    confirm("Do you want to add this track?");
     const newTrack: APISong = { id, imgSrc, title, artist, audioSrc };
     addSong(newTrack);
     clearInputsStatusOk();
