@@ -3,24 +3,24 @@ import styles from "../styles/AddSongForm.module.css";
 import { addSong, APISong } from "../utils/api";
 
 export default function AddSongForm() {
-  const [id, setId] = useState("");
-  const [imgSrc, setImgSrc] = useState("");
-  const [title, setTitle] = useState("");
-  const [artist, setArtist] = useState("");
-  const [audioSrc, setAudioSrc] = useState("");
+  const [entries, setEntries] = useState({
+    id: "",
+    imgSrc: "",
+    title: "",
+    artist: "",
+    audioSrc: "",
+  });
   const [addStatus, setAddStatus] = useState("");
 
   useEffect(() => {
-    const id = `${artist}_${title}`.replaceAll(" ", "-").toLowerCase();
-    setId(id);
-  }, [artist, title]);
+    const id = `${entries.artist}_${entries.title}`
+      .replaceAll(" ", "-")
+      .toLowerCase();
+    setEntries({ ...entries, id });
+  }, [entries.artist, entries.title]);
 
   function clearInputsStatusOk() {
-    setId("");
-    setImgSrc("");
-    setTitle("");
-    setArtist("");
-    setAudioSrc("");
+    setEntries({ id: "", imgSrc: "", title: "", artist: "", audioSrc: "" });
     setAddStatus("Song added!");
     setTimeout(() => {
       setAddStatus("");
@@ -30,7 +30,7 @@ export default function AddSongForm() {
   function handleSubmit(event) {
     event.preventDefault();
     confirm("Do you want to add this track?");
-    const newTrack: APISong = { id, imgSrc, title, artist, audioSrc };
+    const newTrack: APISong = { ...entries };
     addSong(newTrack);
     clearInputsStatusOk();
   }
@@ -42,8 +42,10 @@ export default function AddSongForm() {
           ID:
           <input
             type="text"
-            value={id}
-            onChange={(event) => setId(event.target.value)}
+            value={entries.id}
+            onChange={(event) =>
+              setEntries({ ...entries, id: event.target.value })
+            }
             readOnly
           />
         </label>
@@ -51,16 +53,20 @@ export default function AddSongForm() {
           Image:
           <input
             type="text"
-            value={imgSrc}
-            onChange={(event) => setImgSrc(event.target.value)}
+            value={entries.imgSrc}
+            onChange={(event) =>
+              setEntries({ ...entries, imgSrc: event.target.value })
+            }
           />
         </label>
         <label className={styles.label}>
           Title:
           <input
             type="text"
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
+            value={entries.title}
+            onChange={(event) =>
+              setEntries({ ...entries, title: event.target.value })
+            }
             required
           />
         </label>
@@ -68,8 +74,10 @@ export default function AddSongForm() {
           Artist:
           <input
             type="text"
-            value={artist}
-            onChange={(event) => setArtist(event.target.value)}
+            value={entries.artist}
+            onChange={(event) =>
+              setEntries({ ...entries, artist: event.target.value })
+            }
             required
           />
         </label>
@@ -77,8 +85,10 @@ export default function AddSongForm() {
           Audio:
           <input
             type="text"
-            value={audioSrc}
-            onChange={(event) => setAudioSrc(event.target.value)}
+            value={entries.audioSrc}
+            onChange={(event) =>
+              setEntries({ ...entries, audioSrc: event.target.value })
+            }
             required
           />
         </label>
