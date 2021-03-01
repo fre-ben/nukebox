@@ -31,7 +31,7 @@ export default function CustomPlayer({ src }: Props) {
         className={styles.duration}
         type="range"
         min="0"
-        max={audioElement.duration}
+        max={audioElement.duration ? audioElement.duration : 0}
         value={progress}
       />
       <button className={styles.btn} onClick={() => setIsPlaying(!isPlaying)}>
