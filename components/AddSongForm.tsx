@@ -11,11 +11,8 @@ export default function AddSongForm() {
   const [addStatus, setAddStatus] = useState("");
 
   useEffect(() => {
-    setId(
-      `${artist.replaceAll(" ", "-").toLowerCase()}_${title
-        .replaceAll(" ", "-")
-        .toLowerCase()}`
-    );
+    const id = `${artist}_${title}`.replaceAll(" ", "-").toLowerCase();
+    setId(id);
   }, [artist, title]);
 
   function clearInputsStatusOk() {
