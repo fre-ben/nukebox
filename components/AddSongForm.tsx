@@ -38,7 +38,7 @@ export default function AddSongForm() {
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
-        <label>
+        <label className={styles.label}>
           ID:
           <input
             type="text"
@@ -47,7 +47,7 @@ export default function AddSongForm() {
             readOnly
           />
         </label>
-        <label>
+        <label className={styles.label}>
           Image:
           <input
             type="text"
@@ -55,7 +55,7 @@ export default function AddSongForm() {
             onChange={(event) => setImgSrc(event.target.value)}
           />
         </label>
-        <label>
+        <label className={styles.label}>
           Title:
           <input
             type="text"
@@ -64,7 +64,7 @@ export default function AddSongForm() {
             required
           />
         </label>
-        <label>
+        <label className={styles.label}>
           Artist:
           <input
             type="text"
@@ -73,7 +73,7 @@ export default function AddSongForm() {
             required
           />
         </label>
-        <label>
+        <label className={styles.label}>
           Audio:
           <input
             type="text"

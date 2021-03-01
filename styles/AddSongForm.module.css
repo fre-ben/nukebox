@@ -21,3 +21,8 @@
   height: 2em;
   margin-left: 1em;
 }
+
+.label {
+  display: grid;
+  grid-template-columns: 3.3em auto;
+}
