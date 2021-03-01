@@ -61,6 +61,7 @@ export default function AddSongForm() {
             type="text"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
+            required
           />
         </label>
         <label>
@@ -69,6 +70,7 @@ export default function AddSongForm() {
             type="text"
             value={artist}
             onChange={(event) => setArtist(event.target.value)}
+            required
           />
         </label>
         <label>
@@ -77,6 +79,7 @@ export default function AddSongForm() {
             type="text"
             value={audioSrc}
             onChange={(event) => setAudioSrc(event.target.value)}
+            required
           />
         </label>
         <button type="submit" className={styles.submitButton}>
